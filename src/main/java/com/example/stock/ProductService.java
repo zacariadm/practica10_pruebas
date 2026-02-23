@@ -5,7 +5,12 @@ import java.util.List;
 
 public class ProductService {
 
+    private final ProductLogger logger;
     List<Product> productos = new ArrayList<>();
+
+    public ProductService() {
+        this.logger = null;
+    }
 
     /**
      * Crea un nuevo producto
@@ -23,6 +28,32 @@ public class ProductService {
             throw new IllegalArgumentException("El precio debe ser mayor que cero.");
         }
         return new Product(nombre, cantidad, precio);
+    }
+
+    /**
+     * Constructor de ProductService que recibe un logger (puede ser null)
+     * @param logger
+     */
+    public ProductService(ProductLogger logger) {
+        this.logger = logger;
+    }
+    
+    /**
+     * Devuelve el logger del servicio (útil para tests)
+     * @return
+     */
+    public ProductLogger getLogger() {
+        return logger;
+    }
+
+    /**
+     * Añade un producto al log (si el logger no es null)
+     * @param p
+     */
+    public void añadirProductoLog(Product p) {
+        if (logger != null) {
+            logger.log("Añadido: " + p.getNombre());
+        }
     }
 
     /**

@@ -25,7 +25,8 @@ practica10
 │ ├── MainApp.java → Punto de entrada de la aplicación
 │ ├── Product.java → Modelo de datos
 │ ├── ProductService.java → Lógica de negocio y validaciones
-│ └── ProductController.java→ Controlador de la interfaz
+│ ├── ProductController.java→ Controlador de la interfaz
+│ └── ProductLogger.java→ intefaz para loggear producto 
 │
 ├── src/main/resources
 │ ├── productView.fxml → Interfaz gráfica
@@ -33,7 +34,8 @@ practica10
 │
 ├── src/test/java/com/example/stock
 │ ├── ProductServiceTest.java
-│ └── SecurityTests.java
+│ ├── SecurityTests.java
+│ └──ProductServiceMockitoTest.java
 │
 └── pom.xml
 
